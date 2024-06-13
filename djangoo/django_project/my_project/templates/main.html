@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ветеринарная клиника</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+        <style>
+            .container {
+                text-align: center;
+            }
+
+            .table {
+                margin: 0 auto;
+            }
+
+            .table th, .table td {
+                text-align: center;
+            }
+
+            .fio-column {
+                text-align: center;
+                font-weight: bold;
+                background-color: #f2f2f2;
+                colspan: 2;
+                padding: 0px 0px 20px 100px;
+            }
+
+            .pts-column {
+                text-align: center;
+                margin-left: auto;
+                padding: 0px 0px 20px 100px;
+            }
+
+            .data {
+               text-align: center;
+               margin-left: auto;
+               padding: 0px 0px 10px 100px;
+            }
+        </style>
+	</head>
+	<body>
+        <div class="container">
+            <h1 style="text-align:center;">Отчетность о наблюдаемых питомцах</h1>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="fio-column">Питомец</th>
+                        <th class="pts-column">Имя</th>
+                        <th class="pts-column">Пол</th>
+                        <th class="pts-column">Возраст (мес.)</th>
+                        <th class="pts-column">Владелец</th>
+                        <th class="pts-column">Номер телефона</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in data %}
+                    <tr>
+                        <td class="data">{{object.type}}</td>
+                        <td class="data">{{object.name}}</td>
+                        <td class="data">{{object.sex}}</td>
+                        <td class="data">{{object.age}}</td>
+                        <td class="data">{{object.owner.full_name}}</td>
+                        <td class="data">{{object.owner.phone_number}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+	</body>
+</html>
